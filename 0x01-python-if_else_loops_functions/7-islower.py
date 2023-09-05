@@ -3,18 +3,14 @@ def islower(c):
 
     return True if c is lowercase character and False otherwise
     """
-
-    if isinstance(c, int):
-        return False
-
-    if isinstance(c, str):
+    try:
         ascii_repres = ord(c)
         if ascii_repres >= 97 and ascii_repres <= 122:
             return True
         else:
             return False
-    else:
+    except TypeError:
         return False
 
 
-print(islower.__doc__)
+# print(islower.__doc__)
