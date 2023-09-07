@@ -8,6 +8,5 @@ if __name__ == "__main__":
         print("1 argument:\n1: {}".format(sys.argv[1]))
     else:
         print(f"{argc - 1} argument:")
-        for i in range(argc):
+        for i in range(1, argc):
             print(f"{i:d}: {sys.argv[i]}")
-            i += 1
