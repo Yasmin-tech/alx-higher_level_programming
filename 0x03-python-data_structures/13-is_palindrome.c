@@ -18,11 +18,11 @@ int is_palindrome(listint_t **head)
 	listint_t *p2;
 	int size = 0, mid = 0, i = 1;
 
-	if (head == NULL || *head == NULL)
+	if (head == NULL)
 		return (0);
 
 	size = listint_len(*head);
-	if (size == 1)
+	if (size == 1 || size == 0)
 		return (1);
 
 	mid = size / 2;
