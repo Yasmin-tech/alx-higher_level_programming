@@ -16,7 +16,6 @@ int is_palindrome(listint_t **head)
 	listint_t *ptr = *head;
 	listint_t *p1, *p2;
 	listint_t *slow = *head, *prev_slow = *head, *fast = *head;
-	int i = 1;
 
 	if (head == NULL)
 		return (0);
@@ -29,10 +28,9 @@ int is_palindrome(listint_t **head)
 		prev_slow = slow;
 		fast = fast->next->next;
 		slow = slow->next;
-		i++;
 	}
 	p1 = prev_slow;
-	if (i % 2 == 1)
+	if (fast)
 		p2 = slow->next;
 	else
 		p2 = slow;
@@ -49,38 +47,10 @@ int is_palindrome(listint_t **head)
 		p1 = ptr;
 		p2 = p2->next;
 		if (p1->n != p2->n)
-			return (0);
+			break;
 		ptr = *head;
 		if (p1 == *head)
 			return (1);
 	}
 	return (0);
-}
-
-
-
-/**
- * listint_len - count the number of the nodes
- *@h: the head of the singly-linked list
- *
- * Return: the number of nodes
- *
- */
-
-size_t listint_len(const listint_t *h)
-{
-	size_t counter = 0;
-	const listint_t *ptr;
-
-	if (h == NULL)
-		return (counter);
-
-	ptr = h;
-	while (ptr != NULL)
-	{
-		counter++;
-		ptr = ptr->next;
-	}
-
-	return (counter);
 }
