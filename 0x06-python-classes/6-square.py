@@ -32,16 +32,16 @@ class Square:
         return self.__position
 
     @position.setter
-    def position(self, new_tuple):
+    def position(self, value):
         """ a setter method for position attribute. """
 
-        if not isinstance(new_tuple, tuple)\
-                or len(new_tuple) != 2\
-                or new_tuple[0] < 0\
-                or new_tuple[1] < 0:
+        if not isinstance(value, tuple)\
+                or len(value) != 2\
+                or value[0] < 0\
+                or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
 
-        self.__position = new_tuple
+        self.__position = value
 
     def area(self):
         """ a method that returns the current square area. """
