@@ -1,0 +1,20 @@
+#!/usr/bin/python3
+import sys
+
+
+def safe_print_integer_err(value):
+    """ a function that prints an integer with "{:d}".format().
+
+    Returns:
+      True if value has been correctly printed
+      (it means the value is an integer)
+    """
+    try:
+        print("{:d}".format(value))
+        return True
+    except TypeError as err:
+        sys.stderr.write("Exception:" + str(err) + "\n")
+        return False
+    except ValueError as err:
+        sys.stderr.write("Exception:" + str(err) + "\n")
+        return False
