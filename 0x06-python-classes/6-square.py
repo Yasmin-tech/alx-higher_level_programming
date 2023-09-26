@@ -36,6 +36,7 @@ class Square:
         """ a setter method for position attribute. """
 
         if not isinstance(new_tuple, tuple)\
+                or len(new_tuple) != 2\
                 or new_tuple[0] < 0\
                 or new_tuple[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -50,10 +51,7 @@ class Square:
     def my_print(self):
         """ prints the square in # to stdout. """
         n = self.__size
-        if self.__position[1] > 1:
-            spaces = 0
-        else:
-            spaces = self.__position[0]
+        spaces = self.__position[0]
         for i in range(n):
             for k in range(spaces):
                 print(" ", end="")
