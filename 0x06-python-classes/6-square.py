@@ -50,7 +50,10 @@ class Square:
     def my_print(self):
         """ prints the square in # to stdout. """
         n = self.__size
-        spaces = self.__position[0]
+        if self.__position[1] > 1:
+            spaces = 0
+        else:
+            spaces = self.__position[0]
         for i in range(n):
             for k in range(spaces):
                 print(" ", end="")
