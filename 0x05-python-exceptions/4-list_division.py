@@ -6,8 +6,6 @@ def list_division(my_list_1, my_list_2, list_length):
     """
     new_list = []
     result = 0
-    if not my_list_1 or not my_list_2:
-        return new_list
     for i in range(list_length):
         try:
             if isinstance(my_list_1[i], (int, float)) and \
