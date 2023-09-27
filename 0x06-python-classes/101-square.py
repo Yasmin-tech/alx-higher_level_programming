@@ -64,9 +64,7 @@ class Square:
                 print(" ", end="")
             for j in range(n):
                 print("#", end="")
-            if i != n - 1:
-                print()
-        print()
+            print()
 
     def __str__(self):
         """ Returns a string representation of the square. """
