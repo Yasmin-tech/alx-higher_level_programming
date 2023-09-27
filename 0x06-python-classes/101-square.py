@@ -70,7 +70,7 @@ class Square:
         """ Returns a string representation of the square. """
         n = self.__size
         if n == 0:
-            return "\n"
+            return
         square_list = []
         for line in range(self.__position[1]):
             square_list.append("\n")
@@ -79,5 +79,6 @@ class Square:
                 square_list.append(" ")
             for j in range(n):
                 square_list.append("#")
-            square_list.append("\n")
+            if i != n - 1:
+                square_list.append("\n")
         return "".join(square_list)
