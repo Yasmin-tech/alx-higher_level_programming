@@ -64,6 +64,5 @@ class Square:
                 print(" ", end="")
             for j in range(n):
                 print("#", end="")
-            if i != n - 1:
-                print()
-        print()
+
+            print()
