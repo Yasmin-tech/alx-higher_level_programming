@@ -80,6 +80,5 @@ class Square:
                 square_list.append(" ")
             for j in range(n):
                 square_list.append("#")
-            if i != n - 1:
-                square_list.append("\n")
+            square_list.append("\n")
         return "".join(square_list)
