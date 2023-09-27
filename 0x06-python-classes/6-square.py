@@ -53,6 +53,9 @@ class Square:
     def my_print(self):
         """ prints the square in # to stdout. """
         n = self.__size
+        if n == 0:
+            print()
+            return
         spaces = self.__position[0]
         for line in range(self.__position[1]):
             print()
