@@ -49,6 +49,7 @@ class SinglyLinkedList:
         new_node = Node(value)
         if not self.__head:
             self.__head = new_node
+            return
         else:
             temp = self.__head
 
