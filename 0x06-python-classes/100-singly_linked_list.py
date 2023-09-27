@@ -62,8 +62,11 @@ class SinglyLinkedList:
                 prev = temp
                 temp = temp.next_node
 
-            prev.next_node = new_node
-            new_node.next_node = temp
+            if temp is None:  # Insert at the end of the list
+                prev.next_node = new_node
+            else:
+                prev.next_node = new_node
+                new_node.next_node = temp
 
     def __str__(self) -> str:
         """ Returns a string representation of the SinglyLinkedList. """
