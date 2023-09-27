@@ -73,12 +73,12 @@ class Square:
             return
         square_list = []
         for line in range(self.__position[1]):
-            square_list.append("\n")
+            square_list.append(str("\n"))
         for i in range(n):
             for space in range(self.__position[0]):
-                square_list.append(" ")
+                square_list.append(str(" "))
             for j in range(n):
-                square_list.append("#")
+                square_list.append(str("#"))
             if i != n - 1:
-                square_list.append("\n")
+                square_list.append(str("\n"))
         return "".join(square_list)
