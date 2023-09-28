@@ -1,5 +1,5 @@
-""" Magic Class """
 #!/usr/bin/python3
+""" Magic Class """
 import math
 
 
