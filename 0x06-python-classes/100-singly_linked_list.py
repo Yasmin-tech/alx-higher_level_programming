@@ -53,7 +53,7 @@ class SinglyLinkedList:
         else:
             temp = self.__head
 
-            if temp.data > new_node.data:
+            if temp.data >= new_node.data:
                 new_node.next_node = self.__head
                 self.__head = new_node
                 return
