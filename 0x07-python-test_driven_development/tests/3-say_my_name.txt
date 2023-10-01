@@ -28,6 +28,8 @@ My name is Yasmin Mahnud
 My name is Yasmin 111
 >>> say_my_name("Yasmin", "&^$$")
 My name is Yasmin &^$$
+>>> say_my_name("  ")
+My name is    
 
 # with spaces before and after first and last name
 
@@ -78,3 +80,7 @@ My name is 3 + 9 None
 Traceback (most recent call last):
 ...
 TypeError: first_name must be a string
+>>> say_my_name()
+Traceback (most recent call last):
+...
+TypeError: say_my_name() missing 1 required positional argument: 'first_name'
