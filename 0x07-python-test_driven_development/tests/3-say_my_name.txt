@@ -1,0 +1,80 @@
+# 3-say_my_name.txt
+
+===================================
+This module aims to test the function `say_my_name(first_name, last_name)`
+===================================
+
+Usage:
+======
+
+The function takes two args: 
+first_name : str
+last_name : str 
+and prints `My name is <first name> <last name>` the second args is optional
+
+Test Cases:
+===========
+
+# import the function
+
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+
+# the function properly working
+
+>>> say_my_name("Yasmin", "Mahnud")
+My name is Yasmin Mahnud
+>>> say_my_name("Yasmin", "111")
+My name is Yasmin 111
+>>> say_my_name("Yasmin", "&^$$")
+My name is Yasmin &^$$
+
+# with spaces before and after first and last name
+
+>>> say_my_name("   Nuur  ", "  Hadi  ") # doctest: +NORMALIZE_WHITESPACE
+My name is   Nuur     Hadi  
+>>> say_my_name("Nuur", "Hadi \n\n") # doctest: +NORMALIZE_WHITESPACE
+My name is Nuur Hadi 
+<BLANKLINE>
+<BLANKLINE>
+>>> say_my_name("Nuur", "Hadi\\") # doctest: +NORMALIZE_WHITESPACE
+My name is Nuur Hadi\
+
+
+# optional second name, there is a space after first_name
+>>> say_my_name("Python")
+My name is Python 
+>>> say_my_name("Python", "   ") # doctest: +NORMALIZE_WHITESPACE
+My name is Python    
+
+
+# first_name and last_name must be strings
+
+>>> say_my_name(99)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+>>> say_my_name(99, "John")
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+>>> say_my_name("Reem", ["Omar"])
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+>>> say_my_name("Reem", None)
+Traceback (most recent call last):
+...
+TypeError: last_name must be a string
+>>> say_my_name(None)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
+
+
+>>> say_my_name("3 + 9", "None")
+My name is 3 + 9 None
+>>> say_my_name(True, False)
+Traceback (most recent call last):
+...
+TypeError: first_name must be a string
