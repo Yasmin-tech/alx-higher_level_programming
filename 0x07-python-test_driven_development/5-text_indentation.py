@@ -11,13 +11,19 @@ def text_indentation(text):
     after each of these characters: ., ? and :"""
     if type(text) is not str:
         raise TypeError("text must be a string")
-    flag = 0
-    for ch in text:
-        if ch == " " and flag:
-            continue
-        print(ch, end="")
-        flag = 0
 
-        if ch == "?" or ch == ":" or ch == ".":
-            print("\n")
-            flag = 1
+    new_line = 0
+    lines = text.split("\n")
+    for line in lines:
+        trimmed_line = line.strip()
+
+        for ch in trimmed_line:
+            if ch == " " and new_line:
+                continue
+            print(ch, end="")
+            new_line = 0
+
+            if ch == "?" or ch == ":" or ch == ".":
+                print("\n")
+                new_line = 1
+    print()  # print a newline character after each line

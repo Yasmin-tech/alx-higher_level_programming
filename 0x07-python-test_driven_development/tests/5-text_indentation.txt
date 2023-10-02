@@ -60,14 +60,17 @@ Hi ['HI'].
 
 # There should be no space at the beginning or at the end of each printed line
 
->>> text_indentation("""Hello:       
-... Mr. John""")
+>>> text_indentation("""  Hello:       
+...                           Mr. John""")
 Hello:
 <BLANKLINE>
 <BLANKLINE>
 Mr.
 <BLANKLINE>
 John
+
+>>> text_indentation("       Python is   fun               ")
+Python is   fun
 >>> text_indentation("I...?...")
 I.
 <BLANKLINE>
@@ -91,13 +94,19 @@ I.
 # nothing is printed when string is empty
 >>> text_indentation("")
 
+#
+>>> text_indentation("     Hi\n     ")
+Hi
+<BLANKLINE>
+>>> text_indentation("       hi        ")
+hi
 
 # no any spaces after the text
 >>> text_indentation("Hi")
 Hi
 >>> text_indentation(""" How are you??     !\
 ... I hope you're well::""")
- How are you?
+How are you?
 <BLANKLINE>
 ?
 <BLANKLINE>
@@ -105,9 +114,9 @@ Hi
 <BLANKLINE>
 :
 <BLANKLINE>
->>> text_indentation("1-This is text\n  2-And This is another text")
+>>> text_indentation("1-This is text\n     2-And This is another text    ")
 1-This is text
-  2-And This is another text
+2-And This is another text
 >>> 
 
 # invalid input
