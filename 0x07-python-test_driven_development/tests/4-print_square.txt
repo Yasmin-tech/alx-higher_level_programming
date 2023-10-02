@@ -1,0 +1,84 @@
+# 4-print_square.txt
+
+==============================
+This is a testing module for the function `print_square` which 
+prints the a square of a specific size using "#"
+==================================
+
+Usage:
+======
+`print_square(size)` and size is the numbers of `#` in each row and column
+
+Test Cases:
+===========
+
+# import the function
+
+>>> print_square = __import__('4-print_square').print_square
+
+
+# the proper use of the function
+
+>>> print_square(4)
+####
+####
+####
+####
+
+>>> print_square(8)
+########
+########
+########
+########
+########
+########
+########
+########
+
+# the function doesn't return
+>>> print(print_square(4))
+####
+####
+####
+####
+None
+
+# The function prints nothing when size is 0
+>>> print_square(0)
+
+# raises errors for invalid size
+
+>>> print_square(8.0)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square(-1)
+Traceback (most recent call last):
+...
+ValueError: size must be >= 0
+
+>>> print_square(-1.5)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square((3,))
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square(None)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square("5")
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+
+>>> print_square()
+Traceback (most recent call last):
+...
+TypeError: print_square() missing 1 required positional argument: 'size'
