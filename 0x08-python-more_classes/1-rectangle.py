@@ -83,7 +83,7 @@ class Rectangle:
         """
         return self.__height
 
-    @width.setter
+    @height.setter
     def height(self, value):
         """ The setter method to set the height property.
 
