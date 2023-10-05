@@ -26,4 +26,3 @@ def text_indentation(text):
             if ch == "?" or ch == ":" or ch == ".":
                 print("\n")
                 new_line = 1
-    print()  # print a newline character after each line
