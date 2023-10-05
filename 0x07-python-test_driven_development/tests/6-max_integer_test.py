@@ -87,5 +87,11 @@ class TestMaxInteger(unittest.TestCase):
             max_integer(l_list)
 
         # one infinite arg
-        l_list = [float('inf')]
-        self.assertEqual(max_integer(l_list), float('inf'))
+        l_list = [[float('inf')]]
+        self.assertEqual(max_integer(l_list), [float('inf')])
+
+        # one  arg
+        l_list = [[1]]
+        self.assertEqual(max_integer(l_list), [1])
+        l_list = [1]
+        self.assertEqual(max_integer(l_list), 1)
