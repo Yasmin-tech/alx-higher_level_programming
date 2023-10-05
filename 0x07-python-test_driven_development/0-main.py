@@ -5,7 +5,8 @@ print(add_integer(1, 2))
 print(add_integer(100, -2))
 print(add_integer(2))
 print(add_integer(100.3, -2))
-print(add_integer(float('inf'), float('inf')))
+print(add_integer)
+print(add_integer(float('inf') - float('inf')))
 
 print(add_integer())
 
