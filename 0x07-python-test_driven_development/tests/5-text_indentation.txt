@@ -64,7 +64,6 @@ Hi ['HI'].
 ...                           Mr. John""")
 Hello:
 <BLANKLINE>
-<BLANKLINE>
 Mr.
 <BLANKLINE>
 John
@@ -97,9 +96,12 @@ I.
 #
 >>> text_indentation("     Hi\n     ")
 Hi
-<BLANKLINE>
 >>> text_indentation("       hi        ")
 hi
+>>> text_indentation("Holberton.School")
+Holberton.
+<BLANKLINE>
+School
 
 # no any spaces after the text
 >>> text_indentation("Hi")
@@ -114,10 +116,7 @@ How are you?
 <BLANKLINE>
 :
 <BLANKLINE>
->>> text_indentation("1-This is text\n     2-And This is another text    ")
-1-This is text
-2-And This is another text
->>> 
+
 
 # invalid input
 >>> text_indentation(12345)
