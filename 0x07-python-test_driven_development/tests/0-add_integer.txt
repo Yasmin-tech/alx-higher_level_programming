@@ -55,6 +55,16 @@ Traceback (most recent call last):
 ...
 ValueError: cannot convert float NaN to integer
 
+>>> add_integer(float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
+>>> add_integer(2, float('nan'))
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+
 # The program only accepts values as int or float, otherwise, it raises TypeError
 >>> add_integer("300", 600)
 Traceback (most recent call last):
