@@ -13,7 +13,7 @@ in sorted order. The original list is not modefied
 Test Cases:
 ===========
 
-# import the class
+# the class
 
 >>> MyList = __import__("1-my_list").MyList
 >>> obj1 = MyList()
