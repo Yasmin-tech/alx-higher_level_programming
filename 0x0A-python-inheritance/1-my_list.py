@@ -16,10 +16,6 @@ class MyList(list):
     Public instance method:that prints the list in ascending sort
     """
 
-    def __init__(self):
-        """initializes the object"""
-        super().__init__()
-
     def print_sorted(self):
         """prints the list in ascending sort."""
         print(sorted(self))
