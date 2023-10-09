@@ -1,0 +1,119 @@
+# 1-obj1.txt
+
+======================================
+This is the testing module for the function `print_sorted`
+that is in the module `1-my_list` and class MyList.
+=======================================
+
+Usage:
+======
+`print_sorted` function takes an object of type MyList and prints it
+in sorted order. The original list is not modefied
+
+Test Cases:
+===========
+
+# import the class
+
+>>> MyList = __import__("1-my_list").MyList
+>>> obj1 = MyList()
+>>> obj1.append(1)
+>>> obj1.append(4)
+>>> obj1.append(2)
+>>> obj1.append(3)
+>>> obj1.append(5)
+>>> print(obj1)
+[1, 4, 2, 3, 5]
+>>> obj1.print_sorted()
+[1, 2, 3, 4, 5]
+>>> print(obj1)
+[1, 4, 2, 3, 5]
+
+
+# float - int - positive and negative
+>>> obj2 = MyList()
+>>> obj2.append(1.0)
+>>> obj2.append(4.4)
+>>> obj2.append(-2)
+>>> obj2.append(-3.1)
+>>> obj2.append(5)
+>>> obj2.print_sorted()
+[-3.1, -2, 1.0, 4.4, 5]
+>>> obj2.sort()
+>>> print(obj2)
+[-3.1, -2, 1.0, 4.4, 5]
+
+#empty list
+>>> obj_empty = MyList()
+>>> obj_empty.print_sorted()
+[]
+
+# one element list
+>>> obj_one_element = MyList()
+>>> obj_one_element.append(999999)
+>>> obj_one_element.print_sorted()
+[999999]
+
+# non-integer data types (all same type)
+>>> obj2 = MyList()
+>>> obj2.append("1.0")
+>>> obj2.append("4.4")
+>>> obj2.append("-2")
+>>> obj2.append("-3.1")
+>>> obj2.append("5")
+>>> obj2.print_sorted()
+['-2', '-3.1', '1.0', '4.4', '5']
+
+# non-integer data types (diffrent types)
+>>> obj2 = MyList()
+>>> obj2.append("1.0")
+>>> obj2.append(4)
+>>> obj2.append((-2))
+>>> obj2.append("-3.1")
+>>> obj2.append("5")
+>>> obj2.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'int' and 'str'
+
+# list containing None
+>>> obj_None = MyList()
+>>> obj_None.append(None)
+>>> obj_None.print_sorted()
+[None]
+
+# list containing inf
+>>> obj_inf = MyList()
+>>> obj_inf.append(float('inf'))
+>>> obj_inf.append(1.3)
+>>> obj_inf.append(1)
+>>> obj_inf.print_sorted()
+[1, 1.3, inf]
+
+# list containing None and a integer
+>>> obj_None_and_int = MyList()
+>>> obj_None_and_int.append(None)
+>>> obj_None_and_int.append(50)
+>>> obj_None_and_int.print_sorted()
+Traceback (most recent call last):
+...
+TypeError: '<' not supported between instances of 'int' and 'NoneType'
+
+# using attributes not defined in list
+>>> obj3 = MyList()
+>>> obj3.print()
+Traceback (most recent call last):
+...
+AttributeError: 'MyList' object has no attribute 'print'
+
+# faling the function requirment
+>>> obj_one_element.print_sorted("sort")
+Traceback (most recent call last):
+...
+TypeError: MyList.print_sorted() takes 1 positional argument but 2 were given
+
+>>> class_obj = [1, 8, -1, 0]
+>>> class_obj.print_sorted()
+Traceback (most recent call last):
+...
+AttributeError: 'list' object has no attribute 'print_sorted'
