@@ -117,3 +117,23 @@ TypeError: MyList.print_sorted() takes 1 positional argument but 2 were given
 Traceback (most recent call last):
 ...
 AttributeError: 'list' object has no attribute 'print_sorted'
+
+# Checking for module docstring
+>>> m = __import__("1-my_list").__doc__
+>>> len(m) > 1
+True
+
+
+# Checking for class docstring
+>>> c = __import__("1-my_list").MyList.__doc__
+>>> len(c) > 1
+True
+
+# Checking for method docstring
+>>> mod = __import__("1-my_list").MyList.print_sorted.__doc__
+>>> len(mod) > 1
+True
+
+# Checking that MyList inherits from list
+>>> issubclass(MyList, list)
+True
