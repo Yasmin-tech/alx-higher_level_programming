@@ -3,6 +3,7 @@
 """
 
 
-def inherits_from(obj, a_class):
+class BaseGeometry:
     """an empty class"""
+
     pass
