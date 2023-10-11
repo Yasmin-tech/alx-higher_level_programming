@@ -13,7 +13,7 @@ list_data = []
 
 try:
     list_data = load_from_json_file("add_item.json")
-except json.JSONDecodeError:
+except FileNotFoundError:
     save_to_json_file(list_data, "add_item.json")
 else:
     list_data = load_from_json_file("add_item.json")
