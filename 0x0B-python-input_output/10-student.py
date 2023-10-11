@@ -24,7 +24,10 @@ class Student:
 
     def to_json(self, attrs=None):
         """retrieves a dictionary representation of a Student instance"""
-        if attrs == None or not attrs:
+        if attrs is None or not attrs:
+            return self.__dict__
+
+        if not all(isinstance(item, str) for item in attrs):
             return self.__dict__
 
         filter_dict = {}
