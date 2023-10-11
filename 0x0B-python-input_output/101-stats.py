@@ -16,8 +16,8 @@ counter = 0
 file_size = 0
 list_valid_codes = [200, 301, 400, 401, 403, 404, 405, 500]
 dict_status_code = {}
-for line in sys.stdin:
-    try:
+try:
+    for line in sys.stdin:
         counter += 1
 
         list_logs = line.split()
@@ -32,9 +32,9 @@ for line in sys.stdin:
             counter = 0
             file_size = 0
             dict_status_code = {}
-    except KeyboardInterrupt:
-        print("File size: {}".format(file_size))
-        for k, v in sorted(dict_status_code.items()):
-            if int(k) in list_valid_codes:
-                print("{}: {}".format(k, v), flush=True)
-        raise
+except KeyboardInterrupt:
+    print("File size: {}".format(file_size))
+    for k, v in sorted(dict_status_code.items()):
+        if int(k) in list_valid_codes:
+            print("{}: {}".format(k, v), flush=True)
+    raise
