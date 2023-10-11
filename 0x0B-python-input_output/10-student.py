@@ -27,9 +27,10 @@ class Student:
         if attrs is None or not attrs:
             return self.__dict__
 
+        if type(attrs) is not list:
+            return self.__dict__
         if not all(isinstance(item, str) for item in attrs):
             return self.__dict__
-
         filter_dict = {}
         for key, value in self.__dict__.items():
             if key in attrs and key not in filter_dict:
