@@ -30,7 +30,7 @@ if __name__ == "__main__":
             if counter == 10:
                 print_status(file_size, dict_status_code)
                 counter = 1
-                dict_status_code = {}
+
             else:
                 counter += 1
 
