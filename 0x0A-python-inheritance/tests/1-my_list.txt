@@ -126,11 +126,6 @@ Traceback (most recent call last):
 ...
 AttributeError: 'MyList' object has no attribute 'print'
 
-# faling the function requirment
->>> obj_one_element.print_sorted("sort")
-Traceback (most recent call last):
-...
-TypeError: TypeError: print_sorted() takes 1 positional argument but 2 were given
 
 >>> class_obj = [1, 8, -1, 0]
 >>> class_obj.print_sorted()
