@@ -30,7 +30,7 @@ if __name__ == "__main__":
             if counter == 10:
                 print_status(file_size, dict_status_code)
                 counter = 1
-
+                dict_status_code = {}
             else:
                 counter += 1
 
@@ -38,7 +38,7 @@ if __name__ == "__main__":
 
             try:
                 file_size += int(list_logs[-1])
-            except (IndexError, ValueError):
+            except Exception:
                 pass
 
             try:
@@ -47,7 +47,7 @@ if __name__ == "__main__":
                         dict_status_code[list_logs[-2]] = 1
                     else:
                         dict_status_code[list_logs[-2]] += 1
-            except IndexError:
+            except Exception:
                 pass
 
     except KeyboardInterrupt:
