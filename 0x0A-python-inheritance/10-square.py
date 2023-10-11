@@ -11,7 +11,7 @@ class Square(Rectangle):
     -------
     __init__(self, size): initialize an object
 
-    area(self): Return the area of the rectangle
+    area(self): Return the area of the square
     """
 
     def __init__(self, size):
@@ -25,7 +25,7 @@ class Square(Rectangle):
         self.__size = size
 
     def area(self):
-        """Return the area of the rectangle"""
+        """Return the area of the square"""
         return self.__size**2
 
     def __str__(self):
