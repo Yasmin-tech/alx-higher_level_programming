@@ -10,31 +10,35 @@ format: <status code>: <number>
 status codes are printed in ascending order
 """
 
-import sys
 
-counter = 0
-file_size = 0
-list_valid_codes = [200, 301, 400, 401, 403, 404, 405, 500]
-dict_status_code = {}
-try:
-    for line in sys.stdin:
-        counter += 1
-
-        list_logs = line.split()
-        file_size += int(list_logs[-1])
-        dict_status_code[list_logs[-2]] = counter
-
-        if counter == 10:
-            print("File size: {}".format(file_size))
-            for k, v in sorted(dict_status_code.items()):
-                if int(k) in list_valid_codes:
-                    print("{}: {}".format(k, v))
-            counter = 0
-            file_size = 0
-            dict_status_code = {}
-except KeyboardInterrupt:
+def print_status(file_size, dict_status_code):
+    """print the current stat of file"""
     print("File size: {}".format(file_size))
     for k, v in sorted(dict_status_code.items()):
         if int(k) in list_valid_codes:
             print("{}: {}".format(k, v), flush=True)
-    raise
+
+
+if __name__ == "__main__":
+    import sys
+
+    counter = 0
+    file_size = 0
+    list_valid_codes = [200, 301, 400, 401, 403, 404, 405, 500]
+    dict_status_code = {}
+    try:
+        for line in sys.stdin:
+            counter += 1
+
+            list_logs = line.split()
+            file_size += int(list_logs[-1])
+            dict_status_code[list_logs[-2]] = counter
+
+            if counter == 10:
+                print_status(file_size, dict_status_code)
+                counter = 0
+                file_size = 0
+                dict_status_code = {}
+    except KeyboardInterrupt:
+        print_status(file_size, dict_status_code)
+        raise
