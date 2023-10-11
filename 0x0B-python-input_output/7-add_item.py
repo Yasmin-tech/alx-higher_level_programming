@@ -13,6 +13,7 @@ list_data = []
 try:
     list_data = load_from_json_file("add_item.json")
 except FileNotFoundError:
+    list_data.extend(list_args[1:])
     save_to_json_file(list_data, "add_item.json")
 else:
     list_data = load_from_json_file("add_item.json")
