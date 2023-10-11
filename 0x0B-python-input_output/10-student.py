@@ -32,6 +32,6 @@ class Student:
 
         filter_dict = {}
         for key, value in self.__dict__.items():
-            if key in attrs:
+            if key in attrs and key not in filter_dict:
                 filter_dict[key] = value
         return filter_dict
