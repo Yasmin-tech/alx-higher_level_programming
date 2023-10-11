@@ -31,8 +31,5 @@ class Student:
             return self.__dict__
         if not all(isinstance(item, str) for item in attrs):
             return self.__dict__
-        filter_dict = {}
-        for key, value in self.__dict__.items():
-            if key in attrs and key not in filter_dict:
-                filter_dict[key] = value
-        return filter_dict
+
+        return {k: getattr(self, k) for k in attrs if hasattr(self, k)}
