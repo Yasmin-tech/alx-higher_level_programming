@@ -15,8 +15,7 @@ def print_status(file_size, dict_status_code):
     """print the current stat of file"""
     print("File size: {}".format(file_size))
     for k, v in sorted(dict_status_code.items()):
-        if int(k) in list_valid_codes:
-            print("{}: {}".format(k, v), flush=True)
+        print("{}: {}".format(k, v), flush=True)
 
 
 if __name__ == "__main__":
@@ -28,17 +27,29 @@ if __name__ == "__main__":
     dict_status_code = {}
     try:
         for line in sys.stdin:
-            counter += 1
-
-            list_logs = line.split()
-            file_size += int(list_logs[-1])
-            dict_status_code[list_logs[-2]] = counter
-
             if counter == 10:
                 print_status(file_size, dict_status_code)
-                counter = 0
-                file_size = 0
+                counter = 1
                 dict_status_code = {}
+            else:
+                counter += 1
+
+            list_logs = line.split()
+
+            try:
+                file_size += int(list_logs[-1])
+            except (IndexError, ValueError):
+                pass
+
+            try:
+                if int(list_logs[-2]) in list_valid_codes:
+                    if dict_status_code.get(list_logs[-2], -1) == -1:
+                        dict_status_code[list_logs[-2]] = 1
+                    else:
+                        dict_status_code[list_logs[-2]] += 1
+            except IndexError:
+                pass
+
     except KeyboardInterrupt:
         print_status(file_size, dict_status_code)
         raise
