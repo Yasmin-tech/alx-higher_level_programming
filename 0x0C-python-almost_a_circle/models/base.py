@@ -96,3 +96,31 @@ class Base:
             return new_list
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serializes in CSV"""
+
+        file_name = cls.__name__ + ".csv"
+        with open(file_name, "w") as f:
+            if not list_objs:
+                f.write("[]")
+            else:
+                list_dicts = [obj.to_dictionary() for obj in list_objs]
+                f.write(Base.to_json_string(list_dicts))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """deserializes in CSV"""
+        file_name = cls.__name__ + ".csv"
+        new_list = []
+        try:
+            with open(file_name, "r") as f:
+                json_string = f.read()
+            list_objects = Base.from_json_string(json_string)
+            for obj_dict in list_objects:
+                new_list.append(cls.create(**obj_dict))
+
+            return new_list
+        except FileNotFoundError:
+            return []
