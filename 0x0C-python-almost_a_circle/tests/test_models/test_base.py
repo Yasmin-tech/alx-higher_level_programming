@@ -117,3 +117,7 @@ class TestBaseClass(unittest.TestCase):
 
     def test_id_NaN(self):
         self.assertTrue(math.isnan(Base(float("inf") - float("inf")).id))
+
+
+if __name__ == "__main__":
+    unittest.main()
