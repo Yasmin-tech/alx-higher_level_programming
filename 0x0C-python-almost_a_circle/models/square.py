@@ -2,7 +2,6 @@
 """
         This module contains the Square
 """
-from typing import Any
 from models.rectangle import Rectangle
 
 
