@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """ This module contains test cases the base.py
 """
 import unittest

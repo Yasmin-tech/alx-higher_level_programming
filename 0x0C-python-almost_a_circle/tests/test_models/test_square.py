@@ -1,10 +1,8 @@
-#!/usr/bin/python3
 """ This module contains test cases the square.py
 """
 import unittest
 import contextlib
 import io
-import math
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square

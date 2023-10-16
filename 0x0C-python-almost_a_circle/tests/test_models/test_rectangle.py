@@ -1,11 +1,8 @@
-#!/usr/bin/python3
 """ This module contains test cases the rectangle.py
 """
 import unittest
-import sys
 import io
 import contextlib
-import math
 from models.base import Base
 from models.rectangle import Rectangle
 
