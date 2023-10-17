@@ -471,10 +471,13 @@ class TestBase_create(unittest.TestCase):
 #         output = Square.load_from_file()
 #         self.assertTrue(all(type(obj) == Square for obj in output))
 
+#     def test_load_from_file_no_file(self):
+#         output = Base.load_from_file()
+#         self.assertEqual([], output)
 
-# #     def test_load_from_file_more_than_one_arg(self):
-# #         with self.assertRaises(TypeError):
-# #             Rectangle.load_from_file([], 1)
+#     def test_load_from_file_more_than_one_arg(self):
+#         with self.assertRaises(TypeError):
+#             Base.load_from_file([], 1)
 
 
 if __name__ == "__main__":
