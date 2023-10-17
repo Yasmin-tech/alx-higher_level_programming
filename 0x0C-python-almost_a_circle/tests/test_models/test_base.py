@@ -14,18 +14,21 @@ class TestBaseClass(unittest.TestCase):
     """
 
     def test_init_no_args(self) -> None:
+        """This is s testing case"""
         """test init with no args"""
         obj1 = Base()
         obj2 = Base()
         self.assertEqual(obj1.id, obj2.id - 1)
 
     def test_init_with_int_args(self) -> None:
+        """This is s testing case"""
         obj1 = Base(12)
         obj2 = Base(14)
         self.assertEqual(obj1.id, 12)
         self.assertEqual(obj2.id, 14)
 
     def test_init_with_without_args(self) -> None:
+        """This is s testing case"""
         Base._Base__nb_objects = 0
         obj1 = Base()
         obj2 = Base()
@@ -37,6 +40,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(obj4.id, obj1.id + 2)
 
     def test_set_id_after_created(self):
+        """This is s testing case"""
         Base._Base__nb_objects = 0
         obj1 = Base()
         self.assertEqual(obj1.id, 1)
@@ -47,12 +51,14 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(obj2.id, 2)
 
     def test_access_nb_objects_from_obj(self):
+        """This is s testing case"""
         with self.assertRaises(AttributeError):
             print(Base().__nb_objects)
 
         self.assertFalse(hasattr(Base(10), "__nb_objects"))
 
     def test_set_id_none_after_created(self):
+        """This is s testing case"""
         Base._Base__nb_objects = 0
         obj1 = Base()
         self.assertEqual(1, obj1.id)
@@ -60,26 +66,31 @@ class TestBaseClass(unittest.TestCase):
         self.assertIsNone(obj1.id)
 
     def test_none_id(self):
+        """This is s testing case"""
         obj1 = Base(None)
         obj2 = Base(None)
         obj3 = Base(None)
         self.assertEqual(obj1.id, obj3.id - 2)
 
     def test_id_is_public(self):
+        """This is s testing case"""
         obj1 = Base(20)
         obj1.id = 30
         self.assertEqual(obj1.id, 30)
 
     def test_nb_objects(self):
+        """This is s testing case"""
         Base._Base__nb_objects = 3
         obj1 = Base()
         self.assertEqual(obj1.id, 4)
 
     def test_init_with_two_args(self):
+        """This is s testing case"""
         with self.assertRaises(TypeError):
             Base(4, 8)
 
     def test_id_float(self):
+        """This is s testing case"""
         Base._Base__nb_objects = 0
         obj1 = Base(5.5)
         self.assertEqual(obj1.id, 5.5)
@@ -88,6 +99,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(obj2.id, 1)
 
     def test_id_str(self):
+        """This is s testing case"""
         obj1 = Base("first_obj")
         self.assertEqual(obj1.id, "first_obj")
 
@@ -99,6 +111,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(obj2.id, obj4.id - 1)
 
     def test_id_list(self):
+        """This is s testing case"""
         obj1 = Base([0, 1, 2])
         self.assertEqual(obj1.id, [0, 1, 2])
 
@@ -110,15 +123,19 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(obj4.id, obj2.id + 1)
 
     def test_id_dict(self):
+        """This is s testing case"""
         self.assertEqual({1, 2, 3.4}, Base({1, 2, 3.4}).id)
 
     def test_id_inf(self):
+        """This is s testing case"""
         self.assertEqual(float("inf"), Base(float("inf")).id)
 
     def test_id_tuple(self):
+        """This is s testing case"""
         self.assertEqual((1, 2, 3.4), Base((1, 2, 3.4)).id)
 
     def test_id_NaN(self):
+        """This is s testing case"""
         self.assertTrue(math.isnan(Base(float("inf") - float("inf")).id))
 
 
@@ -126,23 +143,29 @@ class TestStaticMethod_to_json_string(unittest.TestCase):
     """Test the static mthod to_json_string"""
 
     def test_to_json_string_two_args(self):
+        """This is s testing case"""
         with self.assertRaises(TypeError):
             Base.to_json_string([], [])
 
     def test_to_json_string_no_args(self):
+        """This is s testing case"""
         with self.assertRaises(TypeError):
             Base.to_json_string()
 
     def test_empty_list(self):
+        """This is s testing case"""
         self.assertEqual("[]", Base.to_json_string([]))
 
     def test_empty_tuple(self):
+        """This is s testing case"""
         self.assertEqual("[]", Base.to_json_string(()))
 
     def test_with_none(self):
+        """This is s testing case"""
         self.assertEqual("[]", Base.to_json_string(None))
 
     def test_with_one_rectangle_object(self):
+        """This is s testing case"""
         Base._Base__nb_objects = 0
         r = Rectangle(1, 2)
         r_dict = r.to_dictionary()
@@ -150,6 +173,7 @@ class TestStaticMethod_to_json_string(unittest.TestCase):
         self.assertEqual(excepted_output, Base.to_json_string([r_dict]))
 
     def test_to_json_string_return(self):
+        """This is s testing case"""
         Base._Base__nb_objects = 0
         r = Rectangle(1, 2)
         r_dict = r.to_dictionary()
@@ -157,6 +181,7 @@ class TestStaticMethod_to_json_string(unittest.TestCase):
         self.assertEqual(str, type(Base.to_json_string([r_dict])))
 
     def test_with_rectangle_two_object(self):
+        """This is s testing case"""
         Base._Base__nb_objects = 0
         r = Rectangle(1, 2)
         r_dict = r.to_dictionary()
@@ -169,6 +194,7 @@ class TestStaticMethod_to_json_string(unittest.TestCase):
         self.assertEqual(excepted_output, Base.to_json_string([r_dict, r_dict1]))
 
     def test_with_one_square_object(self):
+        """This is s testing case"""
         Base._Base__nb_objects = 0
         s = Square(1)
         s_dict = s.to_dictionary()
@@ -176,6 +202,7 @@ class TestStaticMethod_to_json_string(unittest.TestCase):
         self.assertEqual(excepted_output, Base.to_json_string([s_dict]))
 
     def test_with_two_square_object(self):
+        """This is s testing case"""
         Base._Base__nb_objects = 0
         s = Square(2)
         s_dict = s.to_dictionary()
@@ -192,28 +219,33 @@ class TestBase_save_to_file(unittest.TestCase):
     """Testing save_to_file method"""
 
     def test_save_to_file_no_args(self):
+        """This is s testing case"""
         r = Rectangle(5, 7)
         with self.assertRaises(TypeError):
             Rectangle.save_to_file()
 
     def test_save_to_file_with_two_args(self):
+        """This is s testing case"""
         r = Rectangle(5, 7)
         with self.assertRaises(TypeError):
             Rectangle.save_to_file(Rectangle, [r])
 
     def test_save_to_file_empty_list(self):
+        """This is s testing case"""
         Rectangle.save_to_file([])
         with open("Rectangle.json", "r") as f:
             string = f.read()
         self.assertEqual(string, "[]")
 
     def test_save_to_file_with_none(self):
+        """This is s testing case"""
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as f:
             string = f.read()
         self.assertEqual(string, "[]")
 
     def test_save_to_file_one_rectangle_object(self):
+        """This is s testing case"""
         r = Rectangle(5, 7, id=10)
         Rectangle.save_to_file([r])
         with open("Rectangle.json", "r") as f:
@@ -223,6 +255,7 @@ class TestBase_save_to_file(unittest.TestCase):
         )
 
     def test_save_to_file_two_rectangle_object(self):
+        """This is s testing case"""
         r = Rectangle(5, 7, id=10)
         r1 = Rectangle(6, 8, id=20)
         Rectangle.save_to_file([r, r1])
@@ -235,6 +268,7 @@ class TestBase_save_to_file(unittest.TestCase):
         )
 
     def test_save_to_file_one_square_object(self):
+        """This is s testing case"""
         s = Square(5, id=10)
         Square.save_to_file([s])
         with open("Square.json", "r") as f:
@@ -242,6 +276,7 @@ class TestBase_save_to_file(unittest.TestCase):
         self.assertEqual(string, '[{"id": 10, "size": 5, "x": 0, "y": 0}]')
 
     def test_save_to_file_two_square_object(self):
+        """This is s testing case"""
         s = Square(5, id=10)
         s1 = Square(6, id=20)
         Square.save_to_file([s, s1])
@@ -254,6 +289,7 @@ class TestBase_save_to_file(unittest.TestCase):
         )
 
     def test_save_rectange_square_in_Base_json(self):
+        """This is s testing case"""
         s = Square(5, id=10)
         r = Rectangle(5, 7, id=20)
         Base.save_to_file([s, r])
@@ -266,6 +302,7 @@ class TestBase_save_to_file(unittest.TestCase):
         )
 
     def test_the_file_overwriten(self):
+        """This is s testing case"""
         s = Square(5, id=10)
         Square.save_to_file([s])
         with open("Square.json", "r") as f:
@@ -285,25 +322,31 @@ class TestBase_from_json_string(unittest.TestCase):
     """Test from_json_string method"""
 
     def test_from_json_string_no_args(self):
+        """This is s testing case"""
         with self.assertRaises(TypeError):
             Rectangle.from_json_string()
 
     def test_from_json_string_two_args(self):
+        """This is s testing case"""
         with self.assertRaises(TypeError):
             Rectangle.from_json_string("[]", "[]")
 
     def test_string_of_empty_list(self):
+        """This is s testing case"""
         self.assertEqual([], Rectangle.from_json_string("[]"))
 
     def test_from_json_string_with_none(self):
+        """This is s testing case"""
         self.assertEqual([], Rectangle.from_json_string(None))
 
     def test_from_json_string_return_type(self):
+        """This is s testing case"""
         r = Rectangle(1, 2)
         r_json_string = r.to_json_string([r.to_dictionary()])
         self.assertEqual(list, type(Rectangle.from_json_string(r_json_string)))
 
     def test_list_dicts_one_rectangle(self):
+        """This is s testing case"""
         r = Rectangle(1, 2, id=2)
         r_json_string = r.to_json_string([r.to_dictionary()])
         self.assertEqual(
@@ -312,6 +355,7 @@ class TestBase_from_json_string(unittest.TestCase):
         )
 
     def test_list_dicts_two_rectangle(self):
+        """This is s testing case"""
         r = Rectangle(1, 2, id=2)
         r1 = Rectangle(5, 7, id=10)
         json_string = Base.to_json_string([r.to_dictionary(), r1.to_dictionary()])
@@ -324,6 +368,7 @@ class TestBase_from_json_string(unittest.TestCase):
         )
 
     def test_list_dicts_one_square(self):
+        """This is s testing case"""
         s = Square(2, id=2)
         s_json_string = s.to_json_string([s.to_dictionary()])
         self.assertEqual(
@@ -332,6 +377,7 @@ class TestBase_from_json_string(unittest.TestCase):
         )
 
     def test_list_dicts_two_square(self):
+        """This is s testing case"""
         s = Square(2, id=2)
         s1 = Square(7, id=10)
         json_string = Base.to_json_string([s.to_dictionary(), s1.to_dictionary()])
@@ -344,6 +390,7 @@ class TestBase_from_json_string(unittest.TestCase):
         )
 
     def test_list_dicts_square_rectangle(self):
+        """This is s testing case"""
         s = Square(2, id=2)
         r = Rectangle(5, 7, id=10)
         json_string = Base.to_json_string([s.to_dictionary(), r.to_dictionary()])
@@ -360,123 +407,143 @@ class TestBase_create(unittest.TestCase):
     """Test create method"""
 
     def test_create_rectangle_no_args(self):
+        """This is s testing case"""
         # return the dummy object
         self.assertEqual(type(Rectangle.create()), Rectangle)
 
     def test_create_square_no_args(self):
+        """This is s testing case"""
         # return the dummy object
         self.assertEqual(type(Square.create()), Square)
 
     def test_create_possitional_args(self):
+        """This is s testing case"""
         with self.assertRaises(TypeError):
             self.assertEqual(type(Rectangle.create(None)), Rectangle)
 
     def test_create_from_rectangle_dict(self):
+        """This is s testing case"""
         r = Rectangle(1, 2)
         r_dict = r.to_dictionary()
         r2 = Rectangle.create(**r_dict)
         self.assertEqual(str(r), str(r2))
 
     def test_create_from_rectangle_dict_checkoutput(self):
+        """This is s testing case"""
         r = Rectangle(1, 2, 3, 4, 5)
         r_dict = r.to_dictionary()
         r2 = Rectangle.create(**r_dict)
         self.assertEqual("[Rectangle] (5) 3/4 - 1/2", str(r2))
 
     def test_create_new_dict_checkoutput(self):
+        """This is s testing case"""
         r2 = Rectangle.create(id=5, x=3, width=1, y=4, height=2)
         self.assertEqual("[Rectangle] (5) 3/4 - 1/2", str(r2))
 
     def test_create_from_rectangle_dict_is(self):
+        """This is s testing case"""
         r = Rectangle(1, 2, 3, 4, 5)
         r_dict = r.to_dictionary()
         r2 = Rectangle.create(**r_dict)
         self.assertIsNot(r, r2)
 
     def test_create_from_rectangle_dict_is(self):
+        """This is s testing case"""
         r = Rectangle(1, 2, 3, 4, 5)
         r_dict = r.to_dictionary()
         r2 = Rectangle.create(**r_dict)
         self.assertNotEqual(r, r2)
 
     def test_create_from_square_dict(self):
+        """This is s testing case"""
         s = Square(1)
         s_dict = s.to_dictionary()
         s2 = Square.create(**s_dict)
         self.assertEqual(str(s), str(s2))
 
     def test_create_from_square_dict_checkoutput(self):
+        """This is s testing case"""
         s = Square(2, 3, 4, 5)
         s_dict = s.to_dictionary()
         s2 = Square.create(**s_dict)
         self.assertEqual("[Square] (5) 3/4 - 2", str(s2))
 
     def test_create_new_square_dict_checkoutput(self):
+        """This is s testing case"""
         s = Square.create(id=5, x=3, size=1, y=4)
         self.assertEqual("[Square] (5) 3/4 - 1", str(s))
 
     def test_create_from_rectangle_dict_is(self):
+        """This is s testing case"""
         s = Square(2, 3, 4, 5)
         s_dict = s.to_dictionary()
         s2 = Square.create(**s_dict)
         self.assertIsNot(s, s2)
 
     def test_create_from_rectangle_dict_is(self):
+        """This is s testing case"""
         s = Square(2, 3, 4, 5)
         s_dict = s.to_dictionary()
         s2 = Square.create(**s_dict)
         self.assertNotEqual(s, s2)
 
 
-# class TestBase_load_from_file(unittest.TestCase):
-#     """Test load_from_file_method o"""
+class TestBase_load_from_file(unittest.TestCase):
+    """Test load_from_file_method o"""
 
-#     def test_load_from_file_rectangleone(self):
-#         r1 = Rectangle(10, 9, 0, 0, 1)
-#         r2 = Rectangle(2, 5, 7, 8, 9)
-#         Rectangle.save_to_file([r1, r2])
-#         list_rectangles_output = Rectangle.load_from_file()
-#         self.assertEqual(str(r1), str(list_rectangles_output[0]))
+    def test_load_from_file_rectangleone(self):
+        """This is s testing case"""
+        r1 = Rectangle(10, 9, 0, 0, 1)
+        r2 = Rectangle(2, 5, 7, 8, 9)
+        Rectangle.save_to_file([r1, r2])
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(r1), str(list_rectangles_output[0]))
 
-#     def test_load_from_file_rectangle_two(self):
-#         r1 = Rectangle(10, 9, 0, 0, 1)
-#         r2 = Rectangle(2, 5, 7, 8, 9)
-#         Rectangle.save_to_file([r1, r2])
-#         list_rectangles_output = Rectangle.load_from_file()
-#         self.assertEqual(str(r2), str(list_rectangles_output[1]))
+    def test_load_from_file_rectangle_two(self):
+        """This is s testing case"""
+        r1 = Rectangle(10, 9, 0, 0, 1)
+        r2 = Rectangle(2, 5, 7, 8, 9)
+        Rectangle.save_to_file([r1, r2])
+        list_rectangles_output = Rectangle.load_from_file()
+        self.assertEqual(str(r2), str(list_rectangles_output[1]))
 
-#     def test_load_from_file_types_rectangle(self):
-#         r1 = Rectangle(10, 9, 0, 0, 1)
-#         r2 = Rectangle(2, 5, 7, 8, 9)
-#         Rectangle.save_to_file([r1, r2])
-#         output = Rectangle.load_from_file()
-#         self.assertTrue(all(type(obj) == Rectangle for obj in output))
+    def test_load_from_file_types_rectangle(self):
+        """This is s testing case"""
+        r1 = Rectangle(10, 9, 0, 0, 1)
+        r2 = Rectangle(2, 5, 7, 8, 9)
+        Rectangle.save_to_file([r1, r2])
+        output = Rectangle.load_from_file()
+        self.assertTrue(all(type(obj) is Rectangle for obj in output))
 
-#     def test_load_from_file_square_one(self):
-#         s1 = Square(5, 1, 8, 3)
-#         s2 = Square(9, 5, 2, 3)
-#         Square.save_to_file([s1, s2])
-#         list_squares_output = Square.load_from_file()
-#         self.assertEqual(str(s1), str(list_squares_output[0]))
+    def test_load_from_file_square_one(self):
+        """This is s testing case"""
+        s1 = Square(5, 1, 8, 3)
+        s2 = Square(9, 5, 2, 3)
+        Square.save_to_file([s1, s2])
+        list_squares_output = Square.load_from_file()
+        self.assertEqual(str(s1), str(list_squares_output[0]))
 
-#     def test_load_from_file_square_two(self):
-#         s1 = Square(5, 1, 8, 3)
-#         s2 = Square(9, 5, 2, 3)
-#         Square.save_to_file([s1, s2])
-#         list_squares_output = Square.load_from_file()
-#         self.assertEqual(str(s2), str(list_squares_output[1]))
+    def test_load_from_file_square_two(self):
+        """This is s testing case"""
+        s1 = Square(5, 1, 8, 3)
+        s2 = Square(9, 5, 2, 3)
+        Square.save_to_file([s1, s2])
+        list_squares_output = Square.load_from_file()
+        self.assertEqual(str(s2), str(list_squares_output[1]))
 
-#     def test_load_from_file_types_square(self):
-#         s1 = Square(5, 1, 8, 3)
-#         s2 = Square(9, 5, 2, 3)
-#         Square.save_to_file([s1, s2])
-#         output = Square.load_from_file()
-#         self.assertTrue(all(type(obj) == Square for obj in output))
+    def test_load_from_file_types_square(self):
+        """This is s testing case"""
+        s1 = Square(5, 1, 8, 3)
+        s2 = Square(9, 5, 2, 3)
+        Square.save_to_file([s1, s2])
+        output = Square.load_from_file()
+        self.assertTrue(all(type(obj) is Square for obj in output))
 
-#     def test_load_from_file_no_file(self):
-#         output = Base.load_from_file()
-#         self.assertEqual([], output)
+    #     def test_load_from_file_no_file(self):
+    #         output = Base.load_from_file()
+    #         self.assertEqual([], output)
 
-#     def test_load_from_file_more_than_one_arg(self):
-#         with self.assertRaises(TypeError):
-#             Base.load_from_file([], 1)
+    def test_load_from_file_more_than_one_arg(self):
+        """This is s testing case"""
+        with self.assertRaises(TypeError):
+            Base.load_from_file([], 1)
