@@ -834,5 +834,35 @@ class TestSquare_update(unittest.TestCase):
         self.assertEqual(str(s), "[Square] (10) 10/10 - 10")
 
 
+class TestSquare_to_dictionary(unittest.TestCase):
+    """Test to_dictionary method"""
+
+    def test_to_dictionary_args(self):
+        with self.assertRaises(TypeError):
+            Square(9).to_dictionary("dict")
+
+    def test_toDictionary_output(self):
+        Base._Base__nb_objects = 0
+        s = Square(8)
+        excepted_output = {"id": 1, "size": 8, "x": 0, "y": 0}
+        # self.assertEqual(r.to_dictionary(), excepted_output)
+        self.assertDictEqual(s.to_dictionary(), excepted_output)
+
+    def test_toDictionary_output_after_set_attributes(self):
+        Base._Base__nb_objects = 0
+        s = Square(8)
+        s.id = 10
+        s.x = 1
+        s.y = 9
+        excepted_output = {"id": 10, "size": 8, "x": 1, "y": 9}
+        # self.assertEqual(r.to_dictionary(), excepted_output)
+        self.assertDictEqual(s.to_dictionary(), excepted_output)
+
+    def test_update_object_with_toDictionary(self):
+        s = Square(9)
+        s2 = Square(2)
+        self.assertNotEqual(s, s2.update(**s.to_dictionary()))
+
+
 if __name__ == "__main__":
     unittest.main()

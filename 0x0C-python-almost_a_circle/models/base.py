@@ -2,6 +2,8 @@
 """ This module contains the base class for all other classes in thid project
 """
 import json
+import turtle
+import random
 
 
 class Base:
@@ -124,3 +126,35 @@ class Base:
             return new_list
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        screen = turtle.Screen()
+        screen.bgcolor("#000000")
+        colors = ["red", "yellow", "blue", "orange", "green"]
+
+        t = turtle.Turtle()
+
+        for r in list_rectangles:
+            t.pencolor(random.choice(colors))
+            t.penup()
+            t.goto(r.x, r.y)
+            t.pendown()
+            t.pensize(random.uniform(0.1, 12.5))
+            for _ in range(2):
+                t.forward(r.width)
+                t.left(90)
+                t.forward(r.height)
+                t.left(90)
+        screen.bgcolor("#ffffff")
+        for s in list_squares:
+            t.setheading(180)
+            t.pencolor(random.choice(colors))
+            t.penup()
+            t.goto(s.x, s.y)
+            t.pendown()
+            t.pensize(random.uniform(0.1, 12.5))
+            for _ in range(4):
+                t.forward(s.size)
+                t.left(90)
+        turtle.done()

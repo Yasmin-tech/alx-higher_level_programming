@@ -901,5 +901,36 @@ class TestRectangle_update(unittest.TestCase):
         self.assertEqual(str(rect1), "[Rectangle] (10) 10/10 - 10/10")
 
 
+class TestRectangle_to_dictionary(unittest.TestCase):
+    """Test to_dictionary method"""
+
+    def test_to_dictionary_args(self):
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2).to_dictionary("dict")
+
+    def test_toDictionary_output(self):
+        Base._Base__nb_objects = 0
+        r = Rectangle(9, 8)
+        excepted_output = {"id": 1, "width": 9, "height": 8, "x": 0, "y": 0}
+        # self.assertEqual(r.to_dictionary(), excepted_output)
+        self.assertDictEqual(r.to_dictionary(), excepted_output)
+
+    def test_toDictionary_output_after_set_attributes(self):
+        Base._Base__nb_objects = 0
+        r = Rectangle(9, 8)
+        r.id = 10
+        r.x = 1
+        r.y = 9
+        excepted_output = {"id": 10, "width": 9, "height": 8, "x": 1, "y": 9}
+        # self.assertEqual(r.to_dictionary(), excepted_output)
+        self.assertDictEqual(r.to_dictionary(), excepted_output)
+
+    def test_update_object_with_toDictionary(self):
+        Base._Base__nb_objects = 0
+        r = Rectangle(9, 8)
+        r2 = Rectangle(2, 3)
+        self.assertNotEqual(r, r2.update(**r.to_dictionary()))
+
+
 if __name__ == "__main__":
     unittest.main()
