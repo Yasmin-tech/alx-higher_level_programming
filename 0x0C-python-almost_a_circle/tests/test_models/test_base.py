@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ This module contains test cases the base.py
 """
 import unittest
@@ -13,6 +14,7 @@ class TestBaseClass(unittest.TestCase):
     """
 
     def test_init_no_args(self) -> None:
+        """test init with no args"""
         obj1 = Base()
         obj2 = Base()
         self.assertEqual(obj1.id, obj2.id - 1)

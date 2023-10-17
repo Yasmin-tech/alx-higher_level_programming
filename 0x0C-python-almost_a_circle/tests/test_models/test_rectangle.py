@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ This module contains test cases the rectangle.py
 """
 import unittest

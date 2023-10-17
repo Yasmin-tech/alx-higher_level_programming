@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """ This module contains test cases the square.py
 """
 import unittest
@@ -862,4 +863,3 @@ class TestSquare_to_dictionary(unittest.TestCase):
         s = Square(9)
         s2 = Square(2)
         self.assertNotEqual(s, s2.update(**s.to_dictionary()))
-
