@@ -863,6 +863,3 @@ class TestSquare_to_dictionary(unittest.TestCase):
         s2 = Square(2)
         self.assertNotEqual(s, s2.update(**s.to_dictionary()))
 
-
-if __name__ == "__main__":
-    unittest.main()

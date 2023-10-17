@@ -478,7 +478,3 @@ class TestBase_create(unittest.TestCase):
 #     def test_load_from_file_more_than_one_arg(self):
 #         with self.assertRaises(TypeError):
 #             Base.load_from_file([], 1)
-
-
-if __name__ == "__main__":
-    unittest.main()

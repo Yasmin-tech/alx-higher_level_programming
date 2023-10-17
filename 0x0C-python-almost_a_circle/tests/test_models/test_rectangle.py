@@ -931,6 +931,3 @@ class TestRectangle_to_dictionary(unittest.TestCase):
         r2 = Rectangle(2, 3)
         self.assertNotEqual(r, r2.update(**r.to_dictionary()))
 
-
-if __name__ == "__main__":
-    unittest.main()
