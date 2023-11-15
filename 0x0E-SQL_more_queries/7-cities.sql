@@ -11,4 +11,4 @@ CREATE TABLE IF NOT EXISTS cities(
 	name VARCHAR(256) NOT NULL, 
 	PRIMARY KEY(id),
 	FOREIGN KEY(state_id) REFERENCES states(id)
-	) type=InnoDB;
+	);
