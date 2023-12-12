@@ -1,7 +1,8 @@
 #!/usr/bin/nodejs
-if (process.argv[2]) {
-  console.log(process.argv[2]);
-  console.log(process.argv[2].length);
+const argc = process.argv;
+if (argc[2]) {
+  console.log(argc[2]);
+  console.log(argc[2].length);
 } else {
   console.log('No argument');
 }
