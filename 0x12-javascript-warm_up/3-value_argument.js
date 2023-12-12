@@ -1,4 +1,4 @@
-#!/usr/bin/nodejs
+#!/usr/bin/nodes
 if (process.argv[2]) {
   console.log(process.argv[2]);
 } else {
