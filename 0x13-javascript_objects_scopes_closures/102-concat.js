@@ -1,16 +1,6 @@
 #!/usr/bin/node
 const fs = require('fs');
 
-fs.readFile('./fileA', function (err, data) {
-  if (err) throw err;
-  const f1 = data.toString();
-
-  fs.readFile('./fileB', function (err, data) {
-    if (err) throw err;
-    const f2 = data.toString();
-
-    fs.writeFile('./fileC', f1 + f2, function (err) {
-      if (err) throw err;
-    });
-  });
-});
+const f1 = fs.readFileSync(process.argv[2]).toString();
+const f2 = fs.readFileSync(process.argv[3]).toString();
+fs.writeFileSync(process.argv[4], f1 + f2);
