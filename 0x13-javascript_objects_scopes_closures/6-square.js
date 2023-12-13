@@ -10,7 +10,7 @@ class Square extends SuperSquare {
   charPrint (c) {
     let character = c;
     if (character === undefined) {
-      character = 'x';
+      character = 'X';
     }
     for (let i = 0; i < this.width; i++) {
       console.log(character.repeat(this.width));
