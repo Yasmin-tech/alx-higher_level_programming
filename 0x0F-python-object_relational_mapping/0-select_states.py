@@ -14,8 +14,8 @@ def get_states():
     dbname = sys.argv[3]
 
     # database object connection
-    db = MySQLdb.connect(host="localhost",
-                         user=uname, passwd=upass, db=dbname, port=3306)
+    db = MySQLdb.connect(host="localhost", user=uname,
+                         password=upass, database=dbname, port=3306)
 
     # create a cursor to the database
     cur = db.cursor()
