@@ -22,8 +22,8 @@ def get_states_filter():
 
     # execute the query
 
-    query = "SELECT * FROM {}.states WHERE BINARY name LIKE 'N%' ORDER BY id ASC"\
-        .format(dbname)
+    query = "SELECT * FROM {}.\
+        states WHERE BINARY name LIKE 'N%' ORDER BY id ASC".format(dbname)
     cur.execute(query)
     rows = cur.fetchall()
     for row in rows:
