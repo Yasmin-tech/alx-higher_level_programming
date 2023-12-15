@@ -4,7 +4,9 @@
 
 import MySQLdb
 import sys
-if __name__ == "__main__":
+
+def get_states():
+    """lists all states in the givin database """
     uname = sys.argv[1]
     upass = sys.argv[2]
     dbname = sys.argv[3]
@@ -23,3 +25,6 @@ if __name__ == "__main__":
     rows = cur.fetchall()
     for row in rows:
         print(row)
+
+if __name__ == "__main__":
+    get_states();
