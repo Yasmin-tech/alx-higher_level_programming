@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-# This moudel contain a script that lists all states from
-# the database hbtn_0e_0_usa
+""" This moudel contain a script that lists all states from
+the database hbtn_0e_0_usa """
 
 import MySQLdb
 import sys
