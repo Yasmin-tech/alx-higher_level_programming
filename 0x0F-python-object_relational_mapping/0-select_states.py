@@ -5,7 +5,9 @@
 import MySQLdb
 import sys
 
+
 def get_states():
+
     """lists all states in the givin database """
     uname = sys.argv[1]
     upass = sys.argv[2]
@@ -26,5 +28,6 @@ def get_states():
     for row in rows:
         print(row)
 
+
 if __name__ == "__main__":
-    get_states();
+    get_states()
