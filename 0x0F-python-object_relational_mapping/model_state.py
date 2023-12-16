@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """ This module contain the class State that will be a mapper
 to table state in the database hbtn_0e_6_usa"""
 
