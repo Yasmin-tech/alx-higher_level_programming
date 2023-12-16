@@ -11,6 +11,9 @@ Base = declarative_base(metadata=mymetadata)
 
 
 class State(Base):
+    """
+    Class with id and name attributes of each state
+    """
     __tablename__ = "states"
 
     id = Column(
@@ -19,4 +22,5 @@ class State(Base):
         nullable=False,
         unique=True,
         primary_key=True)
+
     name = Column('name', String(128), nullable=False)
