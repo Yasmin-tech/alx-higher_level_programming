@@ -1,12 +1,13 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """ This module contain the class State that will be a mapper
 to table state in the database hbtn_0e_6_usa"""
 
-from sqlalchemy import Integer, String, Column
+from sqlalchemy import Integer, String, Column, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 
 
-Base = declarative_base()
+mymetadata = MetaData()
+Base = declarative_base(metadata=mymetadata)
 
 
 class State(Base):
