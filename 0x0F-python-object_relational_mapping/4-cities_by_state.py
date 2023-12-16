@@ -22,7 +22,11 @@ def get_cities():
 
     # execute the query
 
-    query = "SELECT * FROM {}.cities ORDER BY id ASC".format(dbname)
+    query = f"SELECT {dbname}.c.id, {dbname}.c.name, {dbname}.s.name\
+            FROM {dbname}.cities c\
+            JOIN {dbname}.states s\
+            WHERE {dbname}.c.state_id = {dbname}.s.id\
+            ORDER BY id ASC"
     cur.execute(query)
     rows = cur.fetchall()
     for row in rows:
