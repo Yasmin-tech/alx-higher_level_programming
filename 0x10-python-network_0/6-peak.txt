@@ -1,0 +1,2 @@
+#  The complexity of the fuunction find_peak in module find_peak
+O(n)
