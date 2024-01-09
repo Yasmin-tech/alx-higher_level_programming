@@ -25,4 +25,4 @@ if __name__ == "__main__":
         if res.status_code == 204 or not content:
             print("No result")
         else:
-            print("[{}] {}".format(content['id'], content['name']))
+            print("[{}] {}".format(content.get('id'), content.get('name')))
