@@ -19,7 +19,7 @@ if __name__ == "__main__":
     res = requests.post(url, data=payload_tuples)
     try:
         content = res.json()
-    except requests.exceptions.JSONDecodeError():
+    except ValueError:
         print("Not a valid JSON")
     else:
         if res.status_code == 204 or not content:
