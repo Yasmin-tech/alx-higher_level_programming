@@ -10,18 +10,22 @@ const request = require('request');
 
 request(process.argv[2], (error, response, body) => {
   if (!error) {
-    const responseJSON = JSON.parse(body);
-    const result = {};
-    let i;
-    for (i = 0; i < responseJSON.length; i++) {
-      const userId = responseJSON[i].userId;
-      if (result[String(userId)] === undefined) {
-        result[String(userId)] = 0;
+    if (response.statusCode === 200) {
+      const responseJSON = JSON.parse(body);
+      const result = {};
+      let i;
+      for (i = 0; i < responseJSON.length; i++) {
+        const userId = responseJSON[i].userId;
+        if (result[String(userId)] === undefined) {
+          result[String(userId)] = 0;
+        }
+        if (responseJSON[i].completed) {
+          result[String(userId)]++;
+        }
       }
-      if (responseJSON[i].completed) {
-        result[String(userId)]++;
-      }
+      console.log(result);
     }
-    console.log(result);
+  } else {
+    console.log(error);
   }
 });
