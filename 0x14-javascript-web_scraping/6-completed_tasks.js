@@ -16,11 +16,12 @@ request(process.argv[2], (error, response, body) => {
       let i;
       for (i = 0; i < responseJSON.length; i++) {
         const userId = responseJSON[i].userId;
-        if (result[String(userId)] === undefined) {
-          result[String(userId)] = 0;
-        }
         if (responseJSON[i].completed) {
-          result[String(userId)]++;
+          if (result[String(userId)] === undefined) {
+            result[String(userId)] = 1;
+          } else {
+            result[String(userId)]++;
+          }
         }
       }
       console.log(result);
