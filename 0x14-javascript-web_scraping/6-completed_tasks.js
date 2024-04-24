@@ -8,7 +8,7 @@
 
 const request = require('request');
 
-request('https://jsonplaceholder.typicode.com/todos', (error, response, body) => {
+request(process.argv[2], (error, response, body) => {
   if (!error) {
     const responseJSON = JSON.parse(body);
     const result = {};
