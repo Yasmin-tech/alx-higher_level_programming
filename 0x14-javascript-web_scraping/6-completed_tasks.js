@@ -9,9 +9,9 @@
 const request = require('request');
 
 request('https://jsonplaceholder.typicode.com/todos', (error, response, body) => {
-  const result = {};
   if (!error) {
     const responseJSON = JSON.parse(body);
+    const result = {};
     let i;
     for (i = 0; i < responseJSON.length; i++) {
       const userId = responseJSON[i].userId;
@@ -22,6 +22,6 @@ request('https://jsonplaceholder.typicode.com/todos', (error, response, body) =>
         result[String(userId)]++;
       }
     }
+    console.log(result);
   }
-  console.log(result);
 });
